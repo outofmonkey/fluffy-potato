@@ -1,0 +1,39 @@
+/* --------------------------------------------------------------------------- reduced motion */
+
+/*
+  Respect the user's OS-level "reduce motion" preference.
+  Orbital / rotation animations are paused (rather than removed) so
+  planets stay visible at their current position instead of jumping
+  to a default frame, and UI transitions become instant. All controls
+  (planet selection, 2D/3D toggle, zoom, scale switching) remain fully
+  usable; only the decorative motion is suppressed.
+*/
+
+@media (prefers-reduced-motion: reduce) {
+
+  .orbit,
+  .pos,
+  .planet,
+  .satelite,
+  .ring,
+  #sun {
+    animation-play-state: paused !important;
+    animation-duration: 0s !important;
+  }
+
+  #solar-system,
+  #sun,
+  .orbit,
+  .pos,
+  .planet,
+  .satelite,
+  .ring,
+  .infos,
+  .icon,
+  h1,
+  #data,
+  #controls {
+    transition-duration: 0s !important;
+  }
+
+}
